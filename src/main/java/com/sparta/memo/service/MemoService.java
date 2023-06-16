@@ -30,8 +30,6 @@ public class MemoService {
     }
 
     public List<MemoResponseDto> getMemos() {
-        // MemoResponseDto 타입이라서 한 번 변환해준다
-
         // DB 조회
         return memoRepository.findAll().stream().map(MemoResponseDto::new).toList();
     }
@@ -41,14 +39,10 @@ public class MemoService {
         // 해당 메모가 DB에 존재하는지 확인
         Memo memo = findMemo(id);
 
-        if(memo != null) {
-            // memo 내용 수정
-            memo.update(requestDto);
+        // memo 내용 수정
+        memo.update(requestDto);
 
-            return id;
-        } else {
-            throw new IllegalArgumentException("선택한 메모는 존재하지 않습니다.");
-        }
+        return id;
     }
 
     public Long deleteMemo(Long id) {
