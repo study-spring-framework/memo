@@ -3,6 +3,8 @@ package com.sparta.memo.dto;
 import com.sparta.memo.entity.Memo;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
 public class MemoResponseDto {
     private Long id;
@@ -15,9 +17,4 @@ public class MemoResponseDto {
         this.contents = memo.getContents();
     }
 
-    public MemoResponseDto(Long id, String username, String contents) {
-        this.id = id;
-        this.username = username;
-        this.contents = contents;
-    }
 }
